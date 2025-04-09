@@ -263,6 +263,7 @@ body {
 a,button,input,textarea,svg *{
     transition-duration: var(--transition-duration);
 }
+
 .container {
     max-width:calc(var(--conteiner-weidth+var(--content-padding-x))*2) ;
     margin-inline:auto;
@@ -288,37 +289,49 @@ h1,h2,h3,h4,h5,h6{
     background-color: var(--color-light);
     border: none;
     border-radius: var(--border-radius);
-
+    white-space: nowrap;
 }
 
 .button:hover{
     background-color: var(--color-light-gray);
 }
+
 a{
     color:var(--color-light);
 }
+
 a:hover{
     color:var(--color-light-gray)
 }
+
 .header{
     display:flex;
     justify-content: space-between;
     align-items: center;
+    padding-inline: 32px;
     /*column-gap: 20px;*/
     
 }
+
+.header-logo{
+  flex-shrink: 0;
+}
+
 .header-menu-list{
     display: flex; 
+    flex-wrap: wrap;
     column-gap: 50px; 
 }
+
 .header-menu-link{
+    display: inline-flex;
+    align-items: center;  
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
     letter-spacing: 1.2px;
-    display: inline-flex;
-    align-items: center;
+    
     height: 90px;
     column-gap: 7px;
 }
@@ -331,3 +344,64 @@ a:hover{
     border-radius: 50%;
 
 }
+.header-action{
+  display: flex;
+  column-gap: 40px;
+}
+
+.header-burger-button{
+  height: 40px;
+  width: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  color: var(--color-light);
+}
+.header-burger-button:hover{
+  color:var(--color-light-gray)
+}
+
+
+@media(max-width:1024px){
+  .header{
+    flex-wrap: wrap;
+    padding-top:20px; ;
+    row-gap: 10px;
+    padding-inline: 15px;
+
+  }
+  .header-menu{
+    order:1;
+    flex-basis: 100%;
+
+  }
+  .header-menu-link{
+    height: 50px;
+    
+  }
+}
+
+@media(max-width:767px){
+  .button{
+    padding-inline: 18px;
+
+  }
+  
+  .header{
+    padding-top: 10px;
+  }
+ 
+  .header-menu-link{
+    height: 32px;
+  }
+  .header-menu-list{
+    column-gap: 24px;
+  }
+  .header-action{
+    column-gap: 15px;
+  }
+}
+
